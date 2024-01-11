@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-function CategoryFilter() {
+function CategoryFilter({ categories, onSelect, selected }) {
+  
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {/* render <button> elements for each category here */}
+      {categories.map(category => 
+        (<button
+          key={category}
+          id={category}
+          className={selected === category ? "selected" : ""}
+          onClick={onSelect}
+          >{category}</button>))}
     </div>
   );
 }

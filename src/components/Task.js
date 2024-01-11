@@ -1,11 +1,16 @@
 import React from "react";
 
-function Task() {
+function Task({ text, category, id, deleteItem }) {
+  function clickHandler(){
+    const objToDelete = ({ text, category, id })
+    deleteItem(objToDelete)
+  }
+
   return (
-    <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+    <div className="task" id={id}>
+      <div className="label">{category}</div>
+      <div className="text">{text}</div>
+      <button className="delete" id={id} onClick={clickHandler}>X</button>
     </div>
   );
 }
